@@ -1,41 +1,375 @@
+<!doctype html>
 <html>
+  <head>
+		<title>Teste Sistema de avaliação</title>
+		<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+		<!-- Bootstrap core CSS -->
+		<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<style>
+		  .bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		  }
 
-	<head>
-	
-	
-	
-	</head>
+		  @media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+			  font-size: 3.5rem;
+			}
+		  }
+		</style>
+		<!-- Custom styles for this template -->
+		<link href="album.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />	
+		<link rel="stylesheet" href="./css/style.css" />	
+		<script src="./js/script.js"></script>
+  </head>
+  <body>
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Teste</h4>
+          <p class="text-muted">Teste.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        
+        <strong>Sistema em desenvolvimento</strong>
+      </a>
+     
+    </div>
+  </div>
+</header>
 
-	<body>
-		<div>	
-			<p>O QUE ACHOU DESSE PRODUTO?</p>
-			<div><p>5 Estrelas</p></div>
-			<div><p>4 Estrelas</p></div>
-			<div><p>3 Estrelas</p></div>
-			<div><p>2 Estrelas</p></div>
-			<div><p>1 Estrelas</p></div>
-		</div>
-	
-		<div>	
-			<p>MOSTRA PRA GENTE</p>
-			<p>Nos mostre o produto em ação</p>
-			<div><p>Escolher foto</p></div>
-		</div>
+		<!--<p><a class="btn" href="#div-1" rel="modal:open" >Avalie</a></p> -->
 		
-		<div>	
-			<p>FALE MAIS!</p>
-			<textarea placeholder="Nos diga o que achou do produto" ></textarea>
-			<div><p>Escolher foto</p></div>
-		</div>
+		<form action="index.php" method="post">
 		
-		<div>	
-			<p>SOBRE VOCÊ!</p>
-			<input type="text" placeholder="Primeiro Nome" ></input>
-			<input type="text" placeholder="Segundo Nome" ></input>
-			<input  type="email" placeholder="Segundo Nome" ></input>
-			<div><button>Feito</button></div>
-		</div>
-	
-	</body>
-	
+			<div id="div-1" name="div-1" class="modal">	
+				<p><b>O QUE ACHOU DESSE PRODUTO?</b></p>
+				<a href="#div-2" class="btn btn-secondary my-2" rel="modal:open" onclick="sendData(5);" >				
+				<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				</div><p>Gostei Muito!</p></a><br />
+				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData(4);">
+				<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				</div><p>Gostei</p></a>		<br />
+				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData(3);">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg><p>Mais ou Menos</p></a>		<br />
+				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData(2);">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white" >
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg><p>Não Gostei</p></a>		<br />
+				<a  class="btn btn-secondary my-2" href="#div-2" rel="modal:open" onclick="sendData(1);">
+				<svg height="25" width="23" class="star rating" data-rating="1" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg><p>Não</p></a><br />				
+			</div>
+		
+			<div id="div-2"> 	
+				<p><b>MOSTRA PRA GENTE</b></p>
+				<p class="lead text-muted">Nos mostre o produto em ação</p>
+				</br></br>
+				
+				<form method="POST" action="/-/post/img-update" target="fileuploader" enctype="multipart/form-data" style="margin-top:40px;">
+				<input type="hidden" name="hash" value="E1TgZU7Zw.4d35d7eea875c2de6aee00dae55a21cb"><label for="imageupload" class="button btn btn-secondary my-2">Escolher foto</label>
+				<input type="file" name="img" id="imageupload" style="display:none;" accept="image/x-png,image/jpeg,image/jpg">
+				</form>
+				
+				</br></br>
+					<a href="#div-1" class="btn btn-secondary my-2"  rel="modal:open">Anterior</a>
+					<a href="#div-3" class="btn btn-secondary my-2"  rel="modal:open">Próximo</a>
+				</div>
+			
+			<div id="div-3">					
+				<p><b>FALE MAIS!</b></p>
+				<p><textarea width="500"  id="fale_mais" name="fale_mais" placeholder="Nos diga o que achou do produto" ></textarea></p>						
+				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" >Anterior</a>
+				<a href="#div-4" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData2(1);">Próximo</a>
+			</div>
+			
+			<div id="div-4">	
+					<form method="post" action="index.php"  style="margin-top:40px;">
+					<p><b>SOBRE VOCÊ!</b></p>
+					<p><input type="hidden" name="nota" 		id="nota" 		 ></input></p>
+					<p><input type="hidden" name="fale_mais" 	id="fale_mais_hide" 	 ></input></p>
+					<p><input type="text"   name="nome" 		id="nome" 		placeholder="Primeiro Nome" ></input></p>
+					<p><input type="text"   name="ultimo_nome"  id="ultimo_nome"  placeholder="Segundo Nome" ></input></p>
+					<p><input  type="email"	name="mail" 		id="mail" 		placeholder="Email" ></input></p>
+					<input type="submit" value="Feito!" class="btn btn-secondary my-2" > 	
+				</form>
+			</div>			
+			
+		</form>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading" >Teste </h1>
+       <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
+      <p>
+        <a class="btn btn-primary my-2" href="#div-1" rel="modal:open"> Avalie</a>
+        <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="./img/bigmac_v2.png" ></img>
+            <div class="card-body">
+              <p class="card-text">Muito bom! comprem!!.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                
+				<small class="text-muted"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> </small>
+				
+				<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="3">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="4">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="5">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+			</div>
+				
+                <small class="text-muted">13/07/2019</small>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="./img/download.JPG" ></img>
+            <div class="card-body">
+			<p class="card-text"><b>João C</b></p>
+              <p class="card-text">Bão de mais. Esse produto salvou minha vida.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> </small>
+				
+				<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="3">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				
+			</div>
+                <small class="text-muted">13/07/2019</small>
+              </div>
+            </div>
+          </div>
+        </div>
+		
+		        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="./img/bigmac_v2.png" ></img>
+            <div class="card-body">
+              <p class="card-text">Muito bom! comprem!!. teste texto jfaskdljflçkasdjflksçdafjlasçjflkçsdajflçkasw fjjlaksçjf lçkisajf lkçsadjf lkçsajf lkçsdjf lçksaj flçkdsj </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> </small>
+				
+				<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				
+				</div>
+			</div>
+                <small class="text-muted">13/07/2019</small>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="./img/download.JPG" ></img>
+            <div class="card-body">
+              <p class="card-text">Bão de mais. Esse produto salvou minha vida.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                  
+                </div>
+                <small class="text-muted">13/07/2019</small>
+								<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				
+				</div>
+              </div>
+            </div>
+          </div>
+        </div>
+		
+		        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body">
+              <p class="card-text">Muito bom! comprem!!.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                
+                <small class="text-muted">13/07/2019</small>
+								<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				
+				</div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body">
+              <p class="card-text">Bão de mais. Esse produto salvou minha vida.</p>
+              <div class="d-flex justify-content-between align-items-center">
+               				<div class="stars" data-stars="1">
+				<svg height="25" width="23" class="star rating" data-rating="1">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				<svg height="25" width="23" class="star rating" data-rating="2">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>
+				
+				</div>
+                <small class="text-muted">13/07/2019</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Voltar ao Topo</a>
+    </p>
+    <p>Revolution. 2019.</p>
+
+  </div>
+</footer>
+
 </html>
+
+<?php 
+ var_dump($_POST);
+ var_dump($_REQUEST);
+ var_dump($_GET);
+?>
+
