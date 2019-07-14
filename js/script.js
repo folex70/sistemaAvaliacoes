@@ -1,3 +1,8 @@
+ $(function () { $('#modalExemplo').on('hide.bs.modal', function () {
+      })
+   });
+
+
 function sendData(data){
 		alert(data);
 		document.getElementById("nota").value = data;
@@ -6,14 +11,15 @@ function sendData(data){
 function sendData2(data){
 		alert(data);
 		document.getElementById("fale_mais_hide").value = document.getElementById("fale_mais").value;
+		document.getElementById("imageupload_hide").value = document.getElementById("imageupload").value;
 }
 
 $(document).ready(function(){
-    $("#div-1").hide();
-	$("#div-2").hide();
-	$("#div-3").hide();
-	$("#div-4").hide();
-	$("#div-5").hide();
+	 $('#myModal').modal('hide');
+	 $('#myModa2').modal('hide');
+	 $('#myModa3').modal('hide');
+	 $('#myModa4').modal('hide');
+
 	
 	
 	

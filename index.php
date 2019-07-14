@@ -3,29 +3,15 @@
   <head>
 		<title>Teste Sistema de avaliação</title>
 		<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+		<link rel="canonical" href="https://getbootstrap.com/docs/4.0/components/modal/">
 		<!-- Bootstrap core CSS -->
 		<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<style>
-		  .bd-placeholder-img {
-			font-size: 1.125rem;
-			text-anchor: middle;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-		  }
-
-		  @media (min-width: 768px) {
-			.bd-placeholder-img-lg {
-			  font-size: 3.5rem;
-			}
-		  }
-		</style>
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
 		<!-- Custom styles for this template -->
 		<link href="album.css" rel="stylesheet">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />	
+		
 		<link rel="stylesheet" href="./css/style.css" />	
 		<script src="./js/script.js"></script>
   </head>
@@ -54,11 +40,20 @@
 
 		<!--<p><a class="btn" href="#div-1" rel="modal:open" >Avalie</a></p> -->
 		
-		<form action="index.php" method="post">
-		
-			<div id="div-1" name="div-1" class="modal">	
+		<!-- Modal -->
+		<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+			  <div id="div-1" name="div-1" >	
 				<p><b>O QUE ACHOU DESSE PRODUTO?</b></p>
-				<a href="#div-2" class="btn btn-secondary my-2" rel="modal:open" onclick="sendData(5);" >				
+				<a href="" class="btn btn-secondary my-2"  onclick="sendData(5);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<div class="stars" data-stars="1">
 				<svg height="25" width="23" class="star rating" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
@@ -76,7 +71,7 @@
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
 				</div><p>Gostei Muito!</p></a><br />
-				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData(4);">
+				<a href="" class="btn btn-secondary my-2"  onclick="sendData(4);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<div class="stars" data-stars="1">
 				<svg height="25" width="23" class="star rating" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
@@ -94,7 +89,7 @@
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
 				</div><p>Gostei</p></a>		<br />
-				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData(3);">
+				<a href="" class="btn btn-secondary my-2"  onclick="sendData(3);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<svg height="25" width="23" class="star rating" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
@@ -110,7 +105,7 @@
 				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg><p>Mais ou Menos</p></a>		<br />
-				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData(2);">
+				<a href="" class="btn btn-secondary my-2"  onclick="sendData(2);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<svg height="25" width="23" class="star rating" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
@@ -126,7 +121,7 @@
 				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg><p>Não Gostei</p></a>		<br />
-				<a  class="btn btn-secondary my-2" href="#div-2" rel="modal:open" onclick="sendData(1);">
+				<a href="" class="btn btn-secondary my-2"  onclick="sendData(1);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<svg height="25" width="23" class="star rating" data-rating="1" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
@@ -143,42 +138,110 @@
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg><p>Não</p></a><br />				
 			</div>
-		
-			<div id="div-2"> 	
-				<p><b>MOSTRA PRA GENTE</b></p>
-				<p class="lead text-muted">Nos mostre o produto em ação</p>
-				</br></br>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
 				
-				<form method="POST" action="/-/post/img-update" target="fileuploader" enctype="multipart/form-data" style="margin-top:40px;">
-				<input type="hidden" name="hash" value="E1TgZU7Zw.4d35d7eea875c2de6aee00dae55a21cb"><label for="imageupload" class="button btn btn-secondary my-2">Escolher foto</label>
-				<input type="file" name="img" id="imageupload" style="display:none;" accept="image/x-png,image/jpeg,image/jpg">
-				</form>
-				
-				</br></br>
-					<a href="#div-1" class="btn btn-secondary my-2"  rel="modal:open">Anterior</a>
-					<a href="#div-3" class="btn btn-secondary my-2"  rel="modal:open">Próximo</a>
-				</div>
-			
-			<div id="div-3">					
-				<p><b>FALE MAIS!</b></p>
-				<p><textarea width="500"  id="fale_mais" name="fale_mais" placeholder="Nos diga o que achou do produto" ></textarea></p>						
-				<a href="#div-2" class="btn btn-secondary my-2"  rel="modal:open" >Anterior</a>
-				<a href="#div-4" class="btn btn-secondary my-2"  rel="modal:open" onclick="sendData2(1);">Próximo</a>
+			  </div>
 			</div>
-			
-			<div id="div-4">	
+		  </div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<div id="div-2"> 	
+					<p><b>MOSTRA PRA GENTE</b></p>
+					<p class="lead text-muted">Nos mostre o produto em ação</p>
+					</br></br>
+					<form method="POST" action="/-/post/img-update" target="fileuploader" enctype="multipart/form-data" style="margin-top:40px;">
+					<input type="hidden" name="hash" value="E1TgZU7Zw.4d35d7eea875c2de6aee00dae55a21cb"><label for="imageupload" class="button btn btn-secondary my-2">Escolher foto</label>
+					<input type="file" name="img" id="imageupload" style="display:none;" accept="image/x-png,image/jpeg,image/jpg">
+					</form>
+
+					<!--<label for="imageupload" class="button btn btn-secondary my-2">Escolher foto</label>
+					<input type="file" name="img" id="imageupload" style="display:none;" accept="image/x-png,image/jpeg,image/jpg"></input>-->
+				
+			</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-dismiss="modal" data-target="#modal3" >Próximo</button>
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+			<!-- Modal -->
+		<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+					<p><b>FALE MAIS!</b></p>
+					<p><textarea width="500"  id="fale_mais" name="fale_mais" placeholder="Nos diga o que achou do produto" ></textarea></p>						
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-dismiss="modal" data-target="#modal4" onclick="sendData2(1);"  >Próximo</button>
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+					<!-- Modal -->
+		<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+					<div id="div-4">	
 					<form method="post" action="index.php"  style="margin-top:40px;">
 					<p><b>SOBRE VOCÊ!</b></p>
-					<p><input type="hidden" name="nota" 		id="nota" 		 ></input></p>
-					<p><input type="hidden" name="fale_mais" 	id="fale_mais_hide" 	 ></input></p>
-					<p><input type="text"   name="nome" 		id="nome" 		placeholder="Primeiro Nome" ></input></p>
-					<p><input type="text"   name="ultimo_nome"  id="ultimo_nome"  placeholder="Segundo Nome" ></input></p>
-					<p><input  type="email"	name="mail" 		id="mail" 		placeholder="Email" ></input></p>
+					<p><input type="hidden" name="imageupload_hide" 		id="imageupload_hide" 		 ></input></p> 
+					<p><input type="hidden" name="nota" 					id="nota" 					 ></input></p>
+					<p><input type="hidden" name="fale_mais" 				id="fale_mais_hide" 	 	 ></input></p>
+					<p><input type="text"   name="nome" 					id="nome" 		placeholder="Primeiro Nome" ></input></p>
+					<p><input type="text"   name="ultimo_nome"  			id="ultimo_nome"  placeholder="Segundo Nome" ></input></p>
+					<p><input  type="email"	name="mail" 					id="mail" 		placeholder="Email" ></input></p>
 					<input type="submit" value="Feito!" class="btn btn-secondary my-2" > 	
-				</form>
+					</form>
+					
 			</div>			
-			
-		</form>
+								
+			  </div>
+			  <div class="modal-footer">
+				
+				
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+	
+
+		
 
 <main role="main">
 
@@ -187,7 +250,10 @@
       <h1 class="jumbotron-heading" >Teste </h1>
        <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
       <p>
-        <a class="btn btn-primary my-2" href="#div-1" rel="modal:open"> Avalie</a>
+        
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+			Avalie
+		</button>
         <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
       </p>
     </div>
@@ -371,5 +437,6 @@
  var_dump($_POST);
  var_dump($_REQUEST);
  var_dump($_GET);
+ var_dump($_FILES);
 ?>
 
