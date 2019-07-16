@@ -31,7 +31,7 @@
     <div class="container d-flex justify-content-between">
       <a href="#" class="navbar-brand d-flex align-items-center">
         
-        <strong>Sistema em desenvolvimento</strong>
+        <strong><a href="./admin.php" >Sistema em desenvolvimento</a></strong>
       </a>
      
     </div>
@@ -53,59 +53,61 @@
 			  <div class="modal-body">
 			  <div id="div-1" name="div-1" >	
 				<p><b>O QUE ACHOU DESSE PRODUTO?</b></p>
-				<a href="" class="btn btn-secondary my-2"  onclick="sendData(5);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
+				
+				<a href="" class="btn btn-secondary my-2 cemporcento text-left"  onclick="sendData(5);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<div class="stars" data-stars="1">
-				<svg height="25" width="23" class="star rating" data-rating="1">
+				<svg height="25" width="23" class="star rating text-left"  data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg>
-				</div><p>Gostei Muito!</p></a><br />
-				<a href="" class="btn btn-secondary my-2"  onclick="sendData(4);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
+				</svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adoro!		
+				</div></a><br />
+				<a href="" class="btn btn-secondary my-2 cemporcento text-left"  onclick="sendData(4);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<div class="stars" data-stars="1">
-				<svg height="25" width="23" class="star rating" data-rating="1">
+				<svg height="25" width="23" class="star rating text-left" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2" fill="white">
+					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+				</svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gosto
+				</div></a><br />
+				
+				<a href="" class="btn btn-secondary my-2 cemporcento text-left"  onclick="sendData(3);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
+				<svg height="25" width="23" class="star rating text-left" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				</div><p>Gostei</p></a>		<br />
-				<a href="" class="btn btn-secondary my-2"  onclick="sendData(3);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
-				<svg height="25" width="23" class="star rating" data-rating="1">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
+				<svg height="25" width="23" class="star rating text-left" data-rating="2" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
-					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg><p>Mais ou Menos</p></a>		<br />
-				<a href="" class="btn btn-secondary my-2"  onclick="sendData(2);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
+				</svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;É Satisfatório</a>		<br />
+				<a href="" class="btn btn-secondary my-2 cemporcento text-left"  onclick="sendData(2);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<svg height="25" width="23" class="star rating" data-rating="1">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
@@ -120,8 +122,8 @@
 				</svg>
 				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg><p>Não Gostei</p></a>		<br />
-				<a href="" class="btn btn-secondary my-2"  onclick="sendData(1);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
+				</svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não Gostei</a>		<br />
+				<a href="" class="btn btn-secondary my-2 cemporcento text-left"  onclick="sendData(1);"  data-toggle="modal" data-dismiss="modal" data-target="#modal2" >				
 				<svg height="25" width="23" class="star rating" data-rating="1" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
 				</svg>
@@ -136,7 +138,7 @@
 				</svg>
 				<svg height="25" width="23" class="star rating" data-rating="2" fill="white">
 					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg><p>Não</p></a><br />				
+				</svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Odeio</a><br />				
 			</div>
 			  </div>
 			  <div class="modal-footer">
@@ -193,7 +195,7 @@
 			  </div>
 			  <div class="modal-body">
 					<p><b>FALE MAIS!</b></p>
-					<p><textarea width="500"  id="fale_mais" name="fale_mais" placeholder="Nos diga o que achou do produto" ></textarea></p>						
+					<p><textarea width="500"  id="fale_mais" name="fale_mais" class="cemporcento" placeholder="Nos diga o que achou do produto" ></textarea></p>						
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -218,12 +220,14 @@
 					<div id="div-4">	
 					<form method="post" action="index.php"  style="margin-top:40px;">
 					<p><b>SOBRE VOCÊ!</b></p>
+					<!-- inputs ocultos-->
 					<p><input type="hidden" name="imageupload_hide" 		id="imageupload_hide" 		 ></input></p> 
 					<p><input type="hidden" name="nota" 					id="nota" 					 ></input></p>
 					<p><input type="hidden" name="fale_mais" 				id="fale_mais_hide" 	 	 ></input></p>
-					<p><input type="text"   name="nome" 					id="nome" 		placeholder="Primeiro Nome" ></input></p>
-					<p><input type="text"   name="ultimo_nome"  			id="ultimo_nome"  placeholder="Segundo Nome" ></input></p>
-					<p><input  type="email"	name="mail" 					id="mail" 		placeholder="Email" ></input></p>
+					
+					<p><input type="text"   name="nome" 				class="cemporcento" 	id="nome" 		placeholder="Primeiro Nome" ></input></p>
+					<p><input type="text"   name="ultimo_nome"  		class="cemporcento" 	id="ultimo_nome"  placeholder="Segundo Nome" ></input></p>
+					<p><input  type="email"	name="mail" 				class="cemporcento" 	id="mail" 		placeholder="Email" ></input></p>
 					<input type="submit" value="Feito!" class="btn btn-secondary my-2" > 	
 					</form>
 					
@@ -263,6 +267,7 @@
     <div class="container">
 
       <div class="row">
+	  
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <img src="./img/bigmac_v2.png" ></img>
@@ -301,7 +306,7 @@
             <img src="./img/download.JPG" ></img>
             <div class="card-body">
 			<p class="card-text"><b>João C</b></p>
-              <p class="card-text">Bão de mais. Esse produto salvou minha vida.</p>
+              <p class="card-text">Muito bom! comprem!!..</p>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> </small>
 				
@@ -323,7 +328,7 @@
           </div>
         </div>
 		
-		        <div class="col-md-4">
+		<div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <img src="./img/bigmac_v2.png" ></img>
             <div class="card-body">
@@ -352,7 +357,7 @@
           <div class="card mb-4 shadow-sm">
             <img src="./img/download.JPG" ></img>
             <div class="card-body">
-              <p class="card-text">Bão de mais. Esse produto salvou minha vida.</p>
+              <p class="card-text">Muito bom! comprem!!..</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   
@@ -373,7 +378,7 @@
           </div>
         </div>
 		
-		        <div class="col-md-4">
+		<div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div class="card-body">
@@ -399,7 +404,7 @@
           <div class="card mb-4 shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div class="card-body">
-              <p class="card-text">Bão de mais. Esse produto salvou minha vida.</p>
+              <p class="card-text">Muito bom! comprem!!.</p>
               <div class="d-flex justify-content-between align-items-center">
                				<div class="stars" data-stars="1">
 				<svg height="25" width="23" class="star rating" data-rating="1">
@@ -430,13 +435,11 @@
 
   </div>
 </footer>
-
+</body>
 </html>
 
 <?php 
  var_dump($_POST);
- var_dump($_REQUEST);
- var_dump($_GET);
- var_dump($_FILES);
+
 ?>
 
