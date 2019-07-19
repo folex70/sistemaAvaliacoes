@@ -49,11 +49,12 @@
         <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
       </p>
     </div>
-<<<<<<< HEAD
+
 	</section>
-=======
+
   </section>
->>>>>>> c904ef1925d5badc36a62c3ca0fc7287fa926da4
+
+  </section>
 
 		
 
@@ -70,7 +71,7 @@
 </html>
 
 <?php 
-<<<<<<< HEAD
+
 	var_dump($_POST);
  
 	$link = mysqli_connect("127.0.0.1", "root","", "teste_db"); //create database teste_db;
@@ -126,9 +127,7 @@ avaliacao_status int
  insert into avaliacoes values (5,2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1);   
 
 */
-=======
- var_dump($_POST);
 
->>>>>>> c904ef1925d5badc36a62c3ca0fc7287fa926da4
+
 ?>
 
