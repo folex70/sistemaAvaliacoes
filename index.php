@@ -400,28 +400,54 @@
           </div>
         </div>
 		<!-- -->
-		
+		 <?php 
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "teste_db";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			} 
+
+			//--------select-------
+			$sql = "SELECT * FROM avaliacoes";
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+					
+					//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+					echo '<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+							<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+							<div class="card-body">';
+					echo '  <p class="card-text">'.$row['fale_mais'].'</p>';
+					echo ' <div class="d-flex justify-content-between align-items-center">
+									<div class="stars" data-stars="1">	';
+					for($i = 1; $i <= $row['nota']; $i++){
+							echo'<svg height="25" width="23" class="star rating" data-rating="1">
+							<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+						</svg>';
+					}
+					echo'</div>
+						<small class="text-muted">13/07/2019</small>
+					  </div>
+					</div>
+				  </div>
+				</div>';
+				}
+			} 
+			//--------------------
+
+			$conn->close();
+		?>
         <!-- -->
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">Muito bom! comprem!!.</p>
-              <div class="d-flex justify-content-between align-items-center">
-               				<div class="stars" data-stars="1">
-				<svg height="25" width="23" class="star rating" data-rating="1">
-					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg>
-				<svg height="25" width="23" class="star rating" data-rating="2">
-					<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-				</svg>
-				
-				</div>
-                <small class="text-muted">13/07/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -440,7 +466,7 @@
 </body>
 </html>
 
-<<<<<<< HEAD
+
  <?php 
 	var_dump($_POST);
 	$servername = "localhost";
