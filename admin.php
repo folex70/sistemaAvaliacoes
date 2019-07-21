@@ -54,9 +54,7 @@
 
   </section>
 
-  </section>
-
-		
+  </section>		
 
 	<footer class="text-muted">
 	  <div class="container">
@@ -71,7 +69,6 @@
 </html>
 
 <?php 
-
 	var_dump($_POST);
 	
 	$servername = "localhost";
@@ -107,15 +104,11 @@ email varchar(255),
 avaliacao_status int
 );
 
-
  insert into avaliacoes values (6, 5, 'produto muito bom. recomendo', 'tester', 'testerson', 'tester@teste.com',1);   
  insert into avaliacoes values (2, 4, 'produto muito bom demais mesmo. recomendo', 'teste2r', 'testerson', 'tester@teste.com',1);   
  insert into avaliacoes values (3, 2, 'produto não muito recomendavel', 'tester3', 'testerson', 'tester@teste.com',1);   
  insert into avaliacoes values (4, 4, 'gostei', 'tester4', 'testerson', 'tester@teste.com',1);   
  insert into avaliacoes values (5,2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1);   
-
 */
-
-
 ?>
 
