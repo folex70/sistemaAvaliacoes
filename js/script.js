@@ -4,12 +4,12 @@
 
 
 function sendData(data){
-		alert(data);
+		
 		document.getElementById("nota").value = data;
 }
 
 function sendData2(data){
-		alert(data);
+		
 		document.getElementById("fale_mais_hide").value = document.getElementById("fale_mais").value;
 		
 }

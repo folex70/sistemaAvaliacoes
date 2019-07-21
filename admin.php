@@ -73,35 +73,23 @@
 <?php 
 
 	var_dump($_POST);
- 
-	$link = mysqli_connect("127.0.0.1", "root","", "teste_db"); //create database teste_db;
-
-
-	if (!$link) {
-		echo "Error: Unable to connect to MySQL." . PHP_EOL;
-		echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-		echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-		exit;
-	}
-
-	echo "Conectou." . PHP_EOL;
-	echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-
-	//--------select-------
+	
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "teste_db";
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
+	//--------insert-------
 	$sql = "SELECT * FROM avaliacoes";
-	$result = $conn->query($sql);
-
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-		}
-	} else {
-		echo "0 results";
-	}
+	$result = $conn->query($sql) or die($conn->connect_error);
+	var_dump($result);
 	//--------------------
-
-	mysqli_close($link);
+	$conn->close();	
 	
 /* SQL
 

@@ -484,7 +484,7 @@
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		} 
-		//--------select-------
+		//--------insert-------
 		$sql = "insert into avaliacoes 
 		(nota,fale_mais,nome,ult_nome,email,avaliacao_status,data_cadastro,nome_imagem) values 
 		('".$_POST["nota"]."' , 
