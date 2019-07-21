@@ -163,14 +163,17 @@
 				<div id="div-2"> 	
 					<p><b>MOSTRA PRA GENTE</b></p>
 					<p class="lead text-muted">Nos mostre o produto em ação</p>
-					</br></br>
+					</br></br><!--
 					<form method="POST" action="/-/post/img-update" target="fileuploader" enctype="multipart/form-data" style="margin-top:40px;">
 					<input type="hidden" name="hash" value="E1TgZU7Zw.4d35d7eea875c2de6aee00dae55a21cb"><label for="imageupload" class="button btn btn-secondary my-2">Escolher foto</label>
 					<input type="file" name="img" id="imageupload" style="display:none;" accept="image/x-png,image/jpeg,image/jpg">
-					</form>
-
+					<input type="submit" value="Feito!" class="btn btn-secondary my-2" > 	
+					</form>-->
+	
 					<!--<label for="imageupload" class="button btn btn-secondary my-2">Escolher foto</label>
 					<input type="file" name="img" id="imageupload" style="display:none;" accept="image/x-png,image/jpeg,image/jpg"></input>-->
+					<input type="file" name="file" id="file">
+					<span id="uploaded_image"></span>
 				
 			</div>
 			  </div>
@@ -424,8 +427,9 @@
 					//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
 					echo '<div class="col-md-4">
 							<div class="card mb-4 shadow-sm">
-							<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+							<img src="'.$row['nome_imagem'].'"  height="250" width="225" class="img-thumbnail cemporcento"></img>
 							<div class="card-body">';
+					echo '<p class="card-text"><b>'.$row['nome'].'&nbsp;'.$row['ult_nome'].'</b></p>';
 					echo '  <p class="card-text">'.$row['fale_mais'].'</p>';
 					echo ' <div class="d-flex justify-content-between align-items-center">
 									<div class="stars" data-stars="1">	';
@@ -435,7 +439,7 @@
 						</svg>';
 					}
 					echo'</div>
-						<small class="text-muted">13/07/2019</small>
+						<small class="text-muted">'.$row['data_cadastro'].'</small>
 					  </div>
 					</div>
 				  </div>
@@ -468,36 +472,34 @@
 
 
  <?php 
-	var_dump($_POST);
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "teste_db";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	} 
-
-	//--------select-------
-	$sql = "SELECT * FROM avaliacoes";
-	$result = $conn->query($sql);
-
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			var_dump($row );
-			//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-		}
-	} else {
-		echo "0 results";
-	}
-	//--------------------
-
-	$conn->close();
-	
+	//var_dump($_POST);
+	if($_POST){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "teste_db";
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		} 
+		//--------select-------
+		$sql = "insert into avaliacoes 
+		(nota,fale_mais,nome,ult_nome,email,avaliacao_status,data_cadastro,nome_imagem) values 
+		('".$_POST["nota"]."' , 
+		'".$_POST["fale_mais"]."' , 
+		'".$_POST["nome"]."' , 
+		'".$_POST["ultimo_nome"]."' , 
+		'".$_POST["mail"]."' ,
+		1,
+		now(),
+		'".$_POST["imageupload_hide"]."');";
+		echo $sql;
+		$result = $conn->query($sql) or die($conn->connect_error);
+		//--------------------
+		$conn->close();	
+	}	
 /* SQL
 
 -- create database teste_db;
@@ -505,27 +507,27 @@
 use teste_db;
 
 create table avaliacoes (
-id_avaliacao int NOT NULL PRIMARY KEY,
+id_avaliacao int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nota int,
 fale_mais varchar(255),
 nome varchar(255),
 ult_nome varchar(255),
 email varchar(255),
-avaliacao_status int
+avaliacao_status int,
+data_cadastro date,
+nome_imagem varchar(255)
 );
-
-
- insert into avaliacoes values (6, 5, 'produto muito bom. recomendo', 'tester', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (2, 4, 'produto muito bom demais mesmo. recomendo', 'teste2r', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (3, 2, 'produto não muito recomendavel', 'tester3', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (4, 4, 'gostei', 'tester4', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (5,2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1);   
+=======
+ insert into avaliacoes values (6, 5, 'produto muito bom. recomendo', 'tester', 'testerson', 'tester@teste.com',1,now(),'./upload/upload718.png');   
+ insert into avaliacoes values (2, 4, 'produto muito bom demais mesmo. recomendo', 'teste2r', 'testerson', 'tester@teste.com',1,now());   
+ insert into avaliacoes values (3, 2, 'produto não muito recomendavel', 'tester3', 'testerson', 'tester@teste.com',1,now());   
+ insert into avaliacoes values (4, 4, 'gostei', 'tester4', 'testerson', 'tester@teste.com',1,now());   
+ insert into avaliacoes values (5,2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1,now());   
+ 
+ insert into avaliacoes (nota,fale_mais,nome,ult_nome,email,avaliacao_status,data_cadastro,nome_imagem) values (2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1,now(),'./upload/upload718.png');   
 =======
 <?php 
  var_dump($_POST);
-
 ?>
->>>>>>> c904ef1925d5badc36a62c3ca0fc7287fa926da4
-
 */
 ?>
