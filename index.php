@@ -17,26 +17,26 @@
   </head>
   <body>
     <header>
-  <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">Teste</h4>
-          <p class="text-muted">Teste.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        
-        <strong><a href="./admin.php" >Sistema em desenvolvimento</a></strong>
-      </a>
-     
-    </div>
-  </div>
-</header>
+	  <div class="collapse bg-dark" id="navbarHeader">
+		<div class="container">
+		  <div class="row">
+			<div class="col-sm-8 col-md-7 py-4">
+			  <h4 class="text-white">Teste</h4>
+			  <p class="text-muted">Teste.</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="navbar navbar-dark bg-dark shadow-sm">
+		<div class="container d-flex justify-content-between">
+		  <a href="#" class="navbar-brand d-flex align-items-center">
+			
+			<strong><a href="./admin.php" >Sistema em desenvolvimento</a></strong>
+		  </a>
+		 
+		</div>
+	  </div>
+	</header>
 
 		<!--<p><a class="btn" href="#div-1" rel="modal:open" >Avalie</a></p> -->
 		
@@ -45,12 +45,13 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<h5 class="modal-title" id="exampleModalLabel">O QUE ACHOU DESSE PRODUTO?</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
+			  
 			  <div id="div-1" name="div-1" >	
 				<p><b>O QUE ACHOU DESSE PRODUTO?</b></p>
 				
@@ -154,7 +155,7 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<h5 class="modal-title" id="exampleModalLabel">MOSTRA PRA GENTE</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -191,7 +192,7 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<h5 class="modal-title" id="exampleModalLabel">FALE MAIS!</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -214,7 +215,7 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Sobre você!</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -426,9 +427,14 @@
 					
 					//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
 					echo '<div class="col-md-4">
-							<div class="card mb-4 shadow-sm">
-							<img src="'.$row['nome_imagem'].'"  height="250" width="225" class="img-thumbnail cemporcento"></img>
+							<div class="card mb-4 shadow-sm">';
+					if($row['nome_imagem']){
+						echo'<img src="'.$row['nome_imagem'].'"  height="250" width="225" class="img-thumbnail cemporcento"></img>
 							<div class="card-body">';
+					}else{
+						echo'<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Sem Imagem</text></svg><div class="card-body">';
+					}
+
 					echo '<p class="card-text"><b>'.$row['nome'].'&nbsp;'.$row['ult_nome'].'</b></p>';
 					echo '  <p class="card-text">'.$row['fale_mais'].'</p>';
 					echo ' <div class="d-flex justify-content-between align-items-center">
@@ -497,6 +503,8 @@
 		'".$_POST["imageupload_hide"]."');";
 		echo $sql;
 		$result = $conn->query($sql) or die($conn->connect_error);
+		//--------------------
+		echo("<meta http-equiv='refresh' content='1'>"); 
 		//--------------------
 		$conn->close();	
 	}	

@@ -4,16 +4,16 @@
 		<title>Administração</title>
 		<!-- Bootstrap core CSS -->
 		<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		 	      <link href="./css/bootstrap.min.css" rel="stylesheet">  	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 		<!-- Custom styles for this template -->
 		<link rel="stylesheet" href="./css/style.css" />	
 		<script src="./js/script.js"></script>
   </head>
-  <body>
   
-    <header>
+  <body>
+	<header>
 	  <div class="collapse bg-dark" id="navbarHeader">
 		<div class="container">
 		  <div class="row">
@@ -27,88 +27,108 @@
 	  <div class="navbar navbar-dark bg-dark shadow-sm">
 		<div class="container d-flex justify-content-between">
 		  <a href="#" class="navbar-brand d-flex align-items-center">
-			
-			<strong>Sistema em desenvolvimento</strong>
+			<strong>Dashboard</strong>
 		  </a>
-		 
 		</div>
 	  </div>
 	</header>	
+	
+	<main role="main">
+		<section class="jumbotron text-center">
+		<div class="container">
+				<h1 class="jumbotron-heading" >Resumo  </h1>
+			   <p class="lead text-muted">Você recebeu 10 avaliações. A média das avaliações é:<h2>5.0</h2></p>
+			   <br /><br /><br /><br />
+			   <h1 class="jumbotron-heading" >Configurações	  </h1>
+			   <p class="lead text-muted">Deseja que as avaliacoes sejam auto publicadas?</p>
+			   <!-- 	   -->	   
+			   <form method="post">
+				  <div class="form-group"  >
+					<label for="exampleFormControlSelect1">Escolha</label>
+					<select name='moderacao' class="form-control" id="moderacao">
+					  <option value=""></option>
+					  <option value="1">Liberar automaticamente</option>
+					  <option value="2">Não Liberar. Aguardar moderação.</option>
+					</select>
+				  </div>
+				  <input type="submit" value="Salvar" class="btn btn-secondary my-2" > 	
+				</form>
+				<br /><br /><br /><br /><br /><br /><br /><br />
+				<!-- 	   -->   	   
+				<h1 class="jumbotron-heading" >Filtrar Comentários	  </h1>
+				<!-- -->
+				 <?php 
+					$servername = "localhost";
+					$username = "root";
+					$password = "";
+					$dbname = "teste_db";
 
-	<section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading" >DashBoard	  </h1>
-       <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
-	    <h1 class="jumbotron-heading" >Configurações	  </h1>
-       <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
-       <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
-       <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
-	    <h1 class="jumbotron-heading" >Filtrar Comentários	  </h1>
-       <p class="lead text-muted">Aqui tem uma descrição desse produto.</p>
-      <p>
-        <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
-      </p>
-    </div>
+					// Create connection
+					$conn = new mysqli($servername, $username, $password, $dbname);
+					// Check connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					} 
 
+					//--------select-------
+					$sql = "SELECT * FROM avaliacoes";
+					$result = $conn->query($sql);
+					echo '<div class="table-responsive">';
+					echo '<table class = "w3-table-all notranslate">';
+					echo'<tbody><tr><th>Nota</th><th>Status</th><th>Nome</th><th>Sobrenome</th><th>Comentário</th><th>Email</th><th>Data</th><th>imagem</th></tr>';
+					if ($result->num_rows > 0) {
+						// output data of each row
+						while($row = $result->fetch_assoc()) {
+							echo '<tr>
+									  <td>
+										  '.$row["nota"].'
+									  </td>
+									  <td>
+										  '.$row["avaliacao_status"].'
+									  </td>
+									  <td>
+										  '.$row["nome"].'
+									  </td>
+									  <td>
+										  '.$row["ult_nome"].'
+									  </td>
+									  <td>
+										  '.$row["fale_mais"].'
+									  </td>
+									  <td>
+										  '.$row["email"].'
+									  </td>
+									  <td>
+										  '.$row["data_cadastro"].'
+									  </td>
+									  <td>
+										  '.$row["nome_imagem"].'
+									  </td>
+								</tr>';
+						}
+					} 
+					echo '</tbody></table></div>';
+					//--------------------
+
+					$conn->close();
+				?>
+				<!-- 	   -->   	   
+			  <p>
+				<!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+			  </p>
+		</div>
+	</main>
 	</section>
-
-  </section>
-
-  </section>		
-
 	<footer class="text-muted">
 	  <div class="container">
 		<p class="float-right">
 		  <a href="#">Voltar ao Topo</a>
 		</p>
 		<p>Revolution. 2019.</p>
-
 	  </div>
 	</footer>
-
+	
+	</body>
 </html>
 
-<?php 
-	var_dump($_POST);
-	
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "teste_db";
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	} 
-	//--------insert-------
-	$sql = "SELECT * FROM avaliacoes";
-	$result = $conn->query($sql) or die($conn->connect_error);
-	var_dump($result);
-	//--------------------
-	$conn->close();	
-	
-/* SQL
-
--- create database teste_db;
-
-use teste_db;
-
-create table avaliacoes (
-id_avaliacao int NOT NULL PRIMARY KEY,
-nota int,
-fale_mais varchar(255),
-nome varchar(255),
-ult_nome varchar(255),
-email varchar(255),
-avaliacao_status int
-);
-
- insert into avaliacoes values (6, 5, 'produto muito bom. recomendo', 'tester', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (2, 4, 'produto muito bom demais mesmo. recomendo', 'teste2r', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (3, 2, 'produto não muito recomendavel', 'tester3', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (4, 4, 'gostei', 'tester4', 'testerson', 'tester@teste.com',1);   
- insert into avaliacoes values (5,2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1);   
-*/
-?>
 
