@@ -507,7 +507,7 @@
 		'".$_POST["nome"]."' , 
 		'".$_POST["ultimo_nome"]."' , 
 		'".$_POST["mail"]."' ,
-		1,
+		2,
 		now(),
 		'".$_POST["imageupload_hide"]."');";
 		echo $sql;
