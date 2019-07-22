@@ -416,40 +416,49 @@
 			if ($conn->connect_error) {
 				die("Connection failed: " . $conn->connect_error);
 			} 
-
-			//--------select-------
-			$sql = "SELECT * FROM avaliacoes";
+			//--------verificar configuracao-------
+			$sql = "SELECT * FROM config";
 			$result = $conn->query($sql);
-
 			if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
-					
-					//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-					echo '<div class="col-md-4">
-							<div class="card mb-4 shadow-sm">';
-					if($row['nome_imagem']){
-						echo'<img src="'.$row['nome_imagem'].'"  height="250" width="225" class="img-thumbnail cemporcento"></img>
-							<div class="card-body">';
-					}else{
-						echo'<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Sem Imagem</text></svg><div class="card-body">';
+					$config = $row['status_config'];
+				}
+			}
+			//--------select-------
+			$sql = "SELECT * FROM avaliacoes";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+					if($config ==1 || ($config ==2 && $row['avaliacao_status'] == 1)){
+						//echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+						echo '<div class="col-md-4">
+								<div class="card mb-4 shadow-sm">';
+						if($row['nome_imagem']){
+							echo'<img src="'.$row['nome_imagem'].'"  height="250" width="225" class="img-thumbnail cemporcento"></img>
+								<div class="card-body">';
+						}else{
+							echo'<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Sem Imagem</text></svg><div class="card-body">';
+						}
+
+						echo '<p class="card-text"><b>'.$row['nome'].'&nbsp;'.$row['ult_nome'].'</b></p>';
+						echo '  <p class="card-text">'.$row['fale_mais'].'</p>';
+						echo ' <div class="d-flex justify-content-between align-items-center">
+										<div class="stars" data-stars="1">	';
+						for($i = 1; $i <= $row['nota']; $i++){
+								echo'<svg height="25" width="23" class="star rating" data-rating="1">
+								<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+							</svg>';
+						}
+						echo'</div>
+							<small class="text-muted">'.$row['data_cadastro'].'</small>
+						  </div>
+						</div>
+					  </div>
+					</div>';
 					}
 
-					echo '<p class="card-text"><b>'.$row['nome'].'&nbsp;'.$row['ult_nome'].'</b></p>';
-					echo '  <p class="card-text">'.$row['fale_mais'].'</p>';
-					echo ' <div class="d-flex justify-content-between align-items-center">
-									<div class="stars" data-stars="1">	';
-					for($i = 1; $i <= $row['nota']; $i++){
-							echo'<svg height="25" width="23" class="star rating" data-rating="1">
-							<polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
-						</svg>';
-					}
-					echo'</div>
-						<small class="text-muted">'.$row['data_cadastro'].'</small>
-					  </div>
-					</div>
-				  </div>
-				</div>';
 				}
 			} 
 			//--------------------
@@ -521,11 +530,11 @@ fale_mais varchar(255),
 nome varchar(255),
 ult_nome varchar(255),
 email varchar(255),
-avaliacao_status int,
+avaliacao_status int, -- 1 liberado 2 aguardando moderação
 data_cadastro date,
 nome_imagem varchar(255)
 );
-=======
+--------------------------
  insert into avaliacoes values (6, 5, 'produto muito bom. recomendo', 'tester', 'testerson', 'tester@teste.com',1,now(),'./upload/upload718.png');   
  insert into avaliacoes values (2, 4, 'produto muito bom demais mesmo. recomendo', 'teste2r', 'testerson', 'tester@teste.com',1,now());   
  insert into avaliacoes values (3, 2, 'produto não muito recomendavel', 'tester3', 'testerson', 'tester@teste.com',1,now());   
@@ -533,9 +542,15 @@ nome_imagem varchar(255)
  insert into avaliacoes values (5,2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1,now());   
  
  insert into avaliacoes (nota,fale_mais,nome,ult_nome,email,avaliacao_status,data_cadastro,nome_imagem) values (2 , 'comprem mas não esperem muito', 'tester5', 'testerson', 'tester@teste.com',1,now(),'./upload/upload718.png');   
-=======
-<?php 
- var_dump($_POST);
-?>
+--------------------------
+create table config(
+	id_config int not null primary key auto_increment,
+	nome_config varchar(255) ,
+	status_config int
+);
+
+insert into config values (1,'comentarios',1); -- 1 liberado 2 bloqueado aguardando moderação
+--------------------------
+
 */
 ?>

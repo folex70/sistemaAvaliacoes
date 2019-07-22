@@ -26,6 +26,10 @@
 	  </div>
 	  <div class="navbar navbar-dark bg-dark shadow-sm">
 		<div class="container d-flex justify-content-between">
+		<a href="#" class="navbar-brand d-flex align-items-center">
+			
+			<strong><a href="./index.php" >Ir para sistema</a></strong>
+		  </a>
 		  <a href="#" class="navbar-brand d-flex align-items-center">
 			<strong>Dashboard</strong>
 		  </a>
@@ -37,7 +41,33 @@
 		<section class="jumbotron text-center">
 		<div class="container">
 				<h1 class="jumbotron-heading" >Resumo  </h1>
-			   <p class="lead text-muted">Você recebeu 10 avaliações. A média das avaliações é:<h2>5.0</h2></p>
+				 <?php 
+					$servername = "localhost";
+					$username = "root";
+					$password = "";
+					$dbname = "teste_db";
+
+					// Create connection
+					$conn = new mysqli($servername, $username, $password, $dbname);
+					// Check connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					} 
+					//--------obter quantidade de avaliacoes-------
+					$sql = "SELECT count(nota) FROM avaliacoes";
+					$result = $conn->query($sql);
+					while($row = $result->fetch_assoc()) {
+						$qtd = $row['count(nota)'];
+					}
+					//--------obter media de avaliacoes-------
+					$sql = "SELECT avg(nota) FROM avaliacoes";
+					$result = $conn->query($sql);
+					while($row = $result->fetch_assoc()) {
+						$avg = $row['avg(nota)'];
+					}
+					echo '<p class="lead text-muted">Você recebeu '.$qtd.'  avaliações. A média das avaliações é:<h2>'.$avg.'</h2></p>';
+					$conn->close();
+				?>			   
 			   <br /><br /><br /><br />
 			   <h1 class="jumbotron-heading" >Configurações	  </h1>
 			   <p class="lead text-muted">Deseja que as avaliacoes sejam auto publicadas?</p>
@@ -47,11 +77,11 @@
 					<label for="exampleFormControlSelect1">Escolha</label>
 					<select name='moderacao' class="form-control" id="moderacao">
 					  <option value=""></option>
-					  <option value="1">Liberar automaticamente</option>
-					  <option value="2">Não Liberar. Aguardar moderação.</option>
+					  <option value="1">Sim. Liberar automaticamente.</option>
+					  <option value="2">Não. Aguardar moderação.</option>
 					</select>
 				  </div>
-				  <input type="submit" value="Salvar" class="btn btn-secondary my-2" > 	
+				 <!-- <input type="submit" value="Salvar" class="btn btn-secondary my-2" onclick="config"> 	--> 
 				</form>
 				<br /><br /><br /><br /><br /><br /><br /><br />
 				<!-- 	   -->   	   
@@ -70,12 +100,13 @@
 						die("Connection failed: " . $conn->connect_error);
 					} 
 
-					//--------select-------
+					
+					//--------montagem do grid com lista-------
 					$sql = "SELECT * FROM avaliacoes";
 					$result = $conn->query($sql);
 					echo '<div class="table-responsive">';
 					echo '<table class = "w3-table-all notranslate">';
-					echo'<tbody><tr><th>Nota</th><th>Status</th><th>Nome</th><th>Sobrenome</th><th>Comentário</th><th>Email</th><th>Data</th><th>imagem</th></tr>';
+					echo'<tbody><tr><th>Nota</th><th>Status</th><th>Nome</th><th>Sobrenome</th><th>Comentário</th><th>Email</th><th>Data</th><th>imagem</th><th>Excluir</th><th>Liberar</th><th>Ocultar</th></tr>';
 					if ($result->num_rows > 0) {
 						// output data of each row
 						while($row = $result->fetch_assoc()) {
@@ -103,6 +134,15 @@
 									  </td>
 									  <td>
 										  '.$row["nome_imagem"].'
+									  </td>
+									  <td>
+									  <a href="#" onclick="deletar('.$row["id_avaliacao"].');">excluir</a>
+									  </td>
+									  <td>
+									  <a href="#" onclick="liberar('.$row["id_avaliacao"].');">Liberar</a>
+									  </td>
+									  <td>
+									  <a href="#" onclick="ocultar('.$row["id_avaliacao"].');">Ocultar</a>
 									  </td>
 								</tr>';
 						}

@@ -1,3 +1,73 @@
+ //---
+ function deletar(id){
+		
+		//alert(id);
+		$.ajax({
+		url:"ajax.php?id="+id+"&function=delete",
+		method:"POST",
+		data:id,
+		contentType:false,
+		cache:false,
+		processData:false,
+		beforeSend:function(){
+			//$('#uploaded_image').html("label class='text-success'>Fazendo o Upload...</label>");
+		},
+		success:function(data){
+			alert("Comentário excluido com sucesso!");
+			location.reload();
+			//$('#uploaded_image').html(data);
+			//document.getElementById("imageupload_hide").value = document.getElementById("imageupload_name").value;
+		}
+	});
+		
+}
+ //---
+ function liberar(id){
+		
+		//alert(id);
+		$.ajax({
+		url:"ajax.php?id="+id+"&function=liberar",
+		method:"POST",
+		data:id,
+		contentType:false,
+		cache:false,
+		processData:false,
+		beforeSend:function(){
+			//$('#uploaded_image').html("label class='text-success'>Fazendo o Upload...</label>");
+		},
+		success:function(data){
+			alert("Comentário liberado!");
+			location.reload();
+			//$('#uploaded_image').html(data);
+			//document.getElementById("imageupload_hide").value = document.getElementById("imageupload_name").value;
+		}
+	});
+		
+}
+ //---
+ function ocultar(id){
+		
+		//alert(id);
+		$.ajax({
+		url:"ajax.php?id="+id+"&function=ocultar",
+		method:"POST",
+		data:id,
+		contentType:false,
+		cache:false,
+		processData:false,
+		beforeSend:function(){
+			//$('#uploaded_image').html("label class='text-success'>Fazendo o Upload...</label>");
+		},
+		success:function(data){
+			alert("Comentário oculto.");
+			location.reload();
+			//$('#uploaded_image').html(data);
+			//document.getElementById("imageupload_hide").value = document.getElementById("imageupload_name").value;
+		}
+	});
+		
+}
+ 
  $(function () { $('#modalExemplo').on('hide.bs.modal', function () {
       })
    });
@@ -53,6 +123,27 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(document).on('change', '#moderacao', function(){
+		//alert(document.getElementById("moderacao").value);
+		var val = document.getElementById("moderacao").value;
+		$.ajax({
+		url:"ajax.php?val="+val+"&function=config",
+		method:"POST",
+		data:val,
+		contentType:false,
+		cache:false,
+		processData:false,
+		beforeSend:function(){
+			//$('#uploaded_image').html("label class='text-success'>Fazendo o Upload...</label>");
+		},
+		success:function(data){
+			alert("Configuração alterada com sucesso!");
+			//$('#uploaded_image').html(data);
+			//document.getElementById("imageupload_hide").value = document.getElementById("imageupload_name").value;
+		}
+	});
+		
+	});	
 	
 	$('.star.rating').click(function(){
 	  console.log( $(this).parent().data('stars') + ", " + $(this).data('rating'));
