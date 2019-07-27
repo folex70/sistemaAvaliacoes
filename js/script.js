@@ -151,3 +151,56 @@ $(document).ready(function(){
 	});
 		
 })
+
+if(typeof Checkout === 'object'){if(typeof Checkout.$ === 'function'){(function (src) {var tagName = 'script', script = document.createElement(tagName);script.src = src;var head = document.getElementsByTagName('head')[0];head.insertBefore(script, head.childNodes[0]);})(
+
+function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+}
+
+function startTimer(duration, display) {
+    var start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+    function timer() {
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds; 
+
+        if (diff <= 0) {
+            start = Date.now() + 1000;
+        }
+    };
+    timer();
+    setInterval(timer, 1000);
+}
+
+window.onload = function () {
+	
+	var fragment3 = create('<div style="display:block;background:#fff5d2;padding:10px 20px;border:1px solid #fac444;font-size:14px;color:#2c2c2c;font-weight:bold;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; margin:5px 0px 20px 0px">Use o código "CARTAO5" nos próximos <span id="time">09:33</span> minutos e Ganhe 5% de Desconto  - <font style="color: #B30000;">DESCONTO VÁLIDO APENAS PARA COMPRAS COM CARTÃO! <br><br>(PROMOÇÃO | PARCELE EM ATÉ 12x)</font> <br></div>');
+	document.getElementsByClassName('main__header')[0].appendChild(fragment3);
+	
+	//var fragment2 = create('<img src="https://www.conversionpirate.com/safesite.jpg" alt="safe site" class="text-center center-block" style="margin:29px 0px">');
+	document.getElementsByClassName('main__header')[0].appendChild(fragment2);
+
+	var ten = 60 * 10,
+	display = document.querySelector('#time');
+	startTimer(ten, display);
+};
+
+);}}
+
+if(typeof Checkout === 'object'){if(typeof Checkout.$ === 'function'){(function (src) {var tagName = 'script', script = document.createElement(tagName);script.src = src;var head = document.getElementsByTagName('head')[0];head.insertBefore(script, head.childNodes[0]);})('https://www.conversionpirate.com/pirate-countdown-trust.js');}}
